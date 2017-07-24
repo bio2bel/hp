@@ -3,7 +3,7 @@
 __version__ = '0.1.1-dev'
 
 __title__ = 'bio2bel_hp'
-__description__ = "A package for converting Human Phenotype Ontology to BEL"
+__description__ = "A package for converting Human Phenotype Ontology to BEL Namespace"
 __url__ = 'https://github.com/bio2bel/hp'
 
 __author__ = 'Charles Tapley Hoyt'
