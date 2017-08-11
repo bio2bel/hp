@@ -8,7 +8,7 @@ import logging
 
 import click
 
-from ols_client.api import OLS_BASE
+from ols_client import OLS_BASE
 from .run import deploy_to_arty
 
 
