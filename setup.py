@@ -14,6 +14,9 @@ INSTALL_REQUIRES = [
     'click',
 ]
 ENTRY_POINTS = {
+    'bio2bel': [
+        'hp = bio2bel_hp',
+    ],
     'console_scripts': [
         'bio2bel_hp = bio2bel_hp.cli:main',
     ]
