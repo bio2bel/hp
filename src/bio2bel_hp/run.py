@@ -5,6 +5,11 @@ from pybel.constants import NAMESPACE_DOMAIN_BIOPROCESS
 from pybel_tools.definition_utils import write_namespace
 from pybel_tools.resources import deploy_namespace, get_today_arty_namespace
 
+__all__ = [
+    'MODULE_NAME',
+    'deploy_to_arty'
+]
+
 MODULE_NAME = 'human-phenotype-ontology'
 
 

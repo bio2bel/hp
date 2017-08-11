@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from . import run
+from .run import *
+
+__all__ = run.__all__
+
 __version__ = '0.1.1-dev'
 
 __title__ = 'bio2bel_hp'
