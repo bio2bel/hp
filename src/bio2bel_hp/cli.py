@@ -20,7 +20,7 @@ def main():
 
 @main.command()
 @click.option('-b', '--ols-base', help="OLS base url. Defaults to {}".format(OLS_BASE))
-def arty(ols_base):
+def deploy(ols_base):
     """Deploy to artifactory"""
     deploy_to_arty(ols_base=ols_base)
 
