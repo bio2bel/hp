@@ -14,7 +14,11 @@ MODULE_NAME = 'human-phenotype-ontology'
 
 
 def deploy_to_arty(ols_base=None):
-    """Gets the data and writes BEL namespace file to artifactory"""
+    """Gets the data and writes BEL namespace file to artifactory
+
+    :return: The resource path, if it was deployed successfully, else none.
+    :rtype: str
+    """
     values = get_labels('hp', ols_base=ols_base)
 
     file_name = get_today_arty_namespace(MODULE_NAME)
@@ -33,8 +37,4 @@ def deploy_to_arty(ols_base=None):
             file=file
         )
 
-    deploy_namespace(file_name, MODULE_NAME)
-
-
-if __name__ == '__main__':
-    deploy_to_arty()
+    return deploy_namespace(file_name, MODULE_NAME)

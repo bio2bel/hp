@@ -20,9 +20,10 @@ def main():
 
 @main.command()
 @click.option('-b', '--ols-base', help="OLS base url. Defaults to {}".format(OLS_BASE))
-def deploy(ols_base):
+def deploy(ols_base=None):
     """Deploy to artifactory"""
-    deploy_to_arty(ols_base=ols_base)
+    success = deploy_to_arty(ols_base=ols_base)
+    click.echo('Deployed to {}'.format(success) if success else 'Duplicate not deployed')
 
 
 if __name__ == '__main__':
