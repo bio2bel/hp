@@ -14,14 +14,14 @@ from .run import deploy_to_arty
 
 @click.group()
 def main():
-    """Output gene family hierarchy as BEL script and BEL namespace"""
+    """Human Phenotype Ontology to BEL"""
     logging.basicConfig(level=10, format="%(asctime)s - %(levelname)s - %(message)s")
 
 
 @main.command()
 @click.option('-b', '--ols-base', help="OLS base url. Defaults to {}".format(OLS_BASE))
 def deploy(ols_base=None):
-    """Deploy to artifactory"""
+    """Deploy BEL namespace to Artifactory"""
     success = deploy_to_arty(ols_base=ols_base)
     click.echo('Deployed to {}'.format(success) if success else 'Duplicate not deployed')
 
