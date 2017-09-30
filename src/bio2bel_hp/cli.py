@@ -8,7 +8,6 @@ import logging
 
 import click
 
-from ols_client import OLS_BASE
 from .run import deploy_to_arty
 
 
@@ -19,7 +18,7 @@ def main():
 
 
 @main.command()
-@click.option('-b', '--ols-base', help="OLS base url. Defaults to {}".format(OLS_BASE))
+@click.option('-b', '--ols-base', help="Custom OLS base url")
 def deploy(ols_base=None):
     """Deploy BEL namespace to Artifactory"""
     success = deploy_to_arty(ols_base=ols_base)
