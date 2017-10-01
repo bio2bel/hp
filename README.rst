@@ -19,3 +19,8 @@ Pip install directly from GitHub with:
 .. code-block:: sh
 
   python3 -m pip install git+https://github.com/bio2bel/hp.git
+
+Links
+-----
+- [Official Site](http://human-phenotype-ontology.github.io/)
+- Entry in the EBI [Ontology Lookup Service](http://www.ebi.ac.uk/ols/ontologies/hp)
