@@ -5,11 +5,9 @@
 from __future__ import print_function
 
 import logging
+import sys
 
 import click
-
-from .run import deploy_to_arty
-
 
 from pybel_tools.ols_utils import OlsNamespaceOntology
 from .run import MODULE_FUNCTIONS, MODULE_DOMAIN, MODULE_NAME
@@ -38,6 +36,7 @@ def deploy(ols_base=None, no_hash_check=False):
     ontology = OlsNamespaceOntology(MODULE_NAME, MODULE_DOMAIN, MODULE_FUNCTIONS, ols_base=ols_base)
     success = ontology.deploy(hash_check=(not no_hash_check))
     click.echo('Deployed to {}'.format(success) if success else 'Duplicate not deployed')
+
 
 if __name__ == '__main__':
     main()
