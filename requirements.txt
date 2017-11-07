@@ -1,2 +1,2 @@
-pybel_tools==0.4.1
+pybel_tools>=0.4.5
 click
