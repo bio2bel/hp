@@ -1,5 +1,7 @@
 Human Phenotype Ontology to BEL
 ===============================
+This repository converts the Human Phenotype Ontology (HP) to a BEL Namespace file by using the EBI Ontology Lookup
+Service.
 
 Citation
 --------
@@ -14,7 +16,7 @@ The Human Phenotype Ontology (HPO) aims to provide a standardized vocabulary of 
 
 Installation
 ------------
-Pip install directly from GitHub with:
+Install directly from GitHub with:
 
 .. code-block:: sh
 
@@ -22,5 +24,5 @@ Pip install directly from GitHub with:
 
 Links
 -----
-- `Official Site <http://human-phenotype-ontology.github.io>`_
+- `HP Official Site <http://human-phenotype-ontology.github.io>`_
 - Entry in the EBI `Ontology Lookup Service <http://www.ebi.ac.uk/ols/ontologies/hp>`_
