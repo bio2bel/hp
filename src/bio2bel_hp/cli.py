@@ -4,10 +4,9 @@
 
 from __future__ import print_function
 
+import click
 import logging
 import sys
-
-import click
 
 from pybel_tools.ols_utils import OlsNamespaceOntology
 from .run import MODULE_DOMAIN, MODULE_ENCODING, MODULE_NAME

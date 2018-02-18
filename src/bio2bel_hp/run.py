@@ -15,16 +15,12 @@ MODULE_NAME = 'hp'
 MODULE_DOMAIN = NAMESPACE_DOMAIN_BIOPROCESS
 MODULE_ENCODING = 'BAO'
 
-ontology = OlsNamespaceOntology(MODULE_NAME, MODULE_DOMAIN, encoding=MODULE_ENCODING)
 
-write_belns = ontology.write_namespace
-deploy_to_arty = ontology.deploy_namespace
+def write_belns(file):
+    ontology = OlsNamespaceOntology(MODULE_NAME, MODULE_DOMAIN, encoding=MODULE_ENCODING)
+    return ontology.write_namespace(file)
 
-if __name__ == '__main__':
-    import logging
-    import os
 
-    logging.basicConfig(level=10)
-
-    with open(os.path.expanduser('~/Desktop/hp.belns'), 'w') as f:
-        ontology.write_namespace(f)
+def deploy_to_arty():
+    ontology = OlsNamespaceOntology(MODULE_NAME, MODULE_DOMAIN, encoding=MODULE_ENCODING)
+    return ontology.deploy_namespace()
