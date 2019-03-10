@@ -2,39 +2,32 @@
 
 """Run this script with either :code:`python3 -m bio2bel_hp arty`"""
 
-from __future__ import print_function
+from typing import Optional, TextIO
 
 import click
-import logging
-import sys
 
-from pybel_tools.ols_utils import OlsNamespaceOntology
-from .run import MODULE_DOMAIN, MODULE_ENCODING, MODULE_NAME
+from bel_resources.obo import convert_obo_graph_to_belns
+from .parser import get_obo
 
 
 @click.group()
 def main():
-    """Human Phenotype Ontology to BEL"""
-    logging.basicConfig(level=10, format="%(asctime)s - %(levelname)s - %(message)s")
+    """Human Phenotype Ontology to BEL."""
 
 
 @main.command()
-@click.option('-b', '--ols-base', help="Custom OLS base url")
-@click.option('-o', '--output', type=click.File('w'), default=sys.stdout)
-def write(ols_base, output):
-    """Writes BEL namespace"""
-    ontology = OlsNamespaceOntology(MODULE_NAME, MODULE_DOMAIN, encoding=MODULE_ENCODING, ols_base=ols_base)
-    ontology.write_namespace(output)
-
-
-@main.command()
-@click.option('-b', '--ols-base', help="Custom OLS base url")
-@click.option('--no-hash-check', is_flag=True)
-def deploy(ols_base=None, no_hash_check=False):
-    """Deploy to Artifactory"""
-    ontology = OlsNamespaceOntology(MODULE_NAME, MODULE_DOMAIN, encoding=MODULE_ENCODING, ols_base=ols_base)
-    success = ontology.deploy_namespace(hash_check=(not no_hash_check))
-    click.echo('Deployed to {}'.format(success) if success else 'Duplicate not deployed')
+@click.option('-f', '--file', type=click.File('w'))
+@click.option('-e', '--encoding')
+@click.option('-n', '--use-names', is_flag=True)
+def belns(file: TextIO, encoding: Optional[str], use_names: bool):
+    """Write as a BEL namespace."""
+    graph = get_obo()
+    convert_obo_graph_to_belns(
+        graph,
+        file=file,
+        encoding=encoding,
+        use_names=use_names,
+    )
 
 
 if __name__ == '__main__':
